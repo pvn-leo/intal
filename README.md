@@ -8,7 +8,7 @@ gcc -Wall -lm -ggdb3 intal.c intal_sampletest.c -o a.out -g
 ./a.out
 make run_unit_tests //testing
 ```
-for debugging --- valgrind ./a.out; gdb ./a.out; time ./a.out
+*for debugging --- valgrind ./a.out; gdb ./a.out; time ./a.out*
 
 ### INTRODUCTION:
 
@@ -38,7 +38,7 @@ static char* str_reverse(const char* str)
     - return a new allocated char* reversed str.
 
 
-1. <b>intal_add(const char* intal1,const char* intal2)<b>
+1. <b>intal_add(const char* intal1,const char* intal2)</b>
     - This operation is performed just as how addition was performed, by aligning the digits in their respective place
       values.
     - Digits are extracted one at a time from the ending of each intal and are then converted into integers.
@@ -48,7 +48,7 @@ static char* str_reverse(const char* str)
     - A '\0' is inserted at the end of this resulting intal to mark the end of the string/intal and then returned.
 
 
-2. <b>intal_compare(const char* intal1, const char* intal2)<b>
+2. <b>intal_compare(const char* intal1, const char* intal2)</b>
     - The length of the two intals are computed.
     - In their respective order if lengths of intal1 > intal2 , 1 is returned. If lengths of intal1 < intal2 -1 is returned.
     - In case the lengths are the same, corresponding digits from each of the intals are compared.
@@ -56,7 +56,7 @@ static char* str_reverse(const char* str)
     - If control exits the for loop, it means the intals are identical/equal and hence 0 is returned.
 
 
-3. <b>intal_diff(const char* intal1, const char* intal2)<b>
+3. <b>intal_diff(const char* intal1, const char* intal2)</b>
     - It is made sure that the pointer 'num1' holds the largest string in terms of value.
     - An integer 'miss' calculates how many digits off, the greater number is from the smaller number in terms of length.
     - Suppose the intals are "1234" and "39", miss = 4-2 = 2
@@ -68,7 +68,7 @@ static char* str_reverse(const char* str)
     - In case of leftover digits in num1 with 0 as a digit and 1 as borrow, 9 is directly inserted into result intal.
     - Final result intal is reversed and returned.
 
-4. <b>intal_multiply(const char* intal1,const char* intal2)<b>
+4. <b>intal_multiply(const char* intal1,const char* intal2)</b>
     - Both the intals are reversed initially and 'rev_intal1' is ensured to be the greatest in length.
     - 'count' variable is equivalent to the blank spaces or '+' we were accustomed to put while multiplying by hand on book
       in school days.
@@ -85,7 +85,7 @@ static char* str_reverse(const char* str)
             5355 is reverse and 5535 is returned.
 
 
-5. <b>intal_mod(const char* intal1, const char* intal2)<b>
+5. <b>intal_mod(const char* intal1, const char* intal2)</b>
     - O(log intal1) implementation.
     - Earlier inefficient attempts include exhaustively subtracting intal2 from intal1, binary search on the multiplier.
     - Logic of implementation is similar to long division(same as in elementary division).
@@ -96,7 +96,7 @@ static char* str_reverse(const char* str)
       the next memory location of the remainder array(ret_mod).
     
 
-6. <b>intal_pow(const char* intal1, unsigned int n)<b>
+6. <b>intal_pow(const char* intal1, unsigned int n)</b>
     - O(logn) implementation.
     - Suppose 8^101 has to be computed, recursively value of 8^50 is computed.
     - Then 8^50 is multiplied with 8^50 to get 8^100.
@@ -104,25 +104,25 @@ static char* str_reverse(const char* str)
     - Of course each smaller number like 50 is divided into 25, then into 12 and so on recursively.
 
 
-7. <b>intal_fibonacci(unsigned int n)<b>
+7. <b>intal_fibonacci(unsigned int n)</b>
     - Tine - O(n)  Space - O(1) logic has been implemented using the concept of sliding window.
     - Cases with n = 0 and 1 are handled.
     - Fn = Fn-1 + Fn-2, where c = Fn, a = Fn-1 and b = Fn-2 are used and values are computed iteratively.
     - c = Fn is returned finally(takes care of n >=1 here).
 
 
-8. <b>intal_gcd(const char* intal1, const char* intal2)<b>
+8. <b>intal_gcd(const char* intal1, const char* intal2)</b>
     - Euclid algorithm has been implemented.
     - Recursive calls are made to this function using the basic step, return gcd(b, a%b). where a and b are two numbers.
 
 
-9. <b>intal_factorial(unsigned int n)<b>
+9. <b>intal_factorial(unsigned int n)</b>
     - Case of n == 0 is handled explicitly.
     - A loop with i from 1 to n is run and it multiplies the product of each step with i.
     - This product is then returned in the end.
 
 
-10. <b>intal_bincoeff(unsigned int n, unsigned int k)<b>
+10. <b>intal_bincoeff(unsigned int n, unsigned int k)</b>
     - Time- O(n*k) and Auxiliary Space - O(k) has been implemented by using dynamic programming.
     - First element in the dp table is initialised to 1.
     - For optimization if (n-k) < k then k is changed to n-k.
@@ -131,28 +131,28 @@ static char* str_reverse(const char* str)
     - Using a dp table ensures  the same subproblem calculation is avoided.
     
     
-11. <b>intal_max(char **arr, int n)<b>
+11. <b>intal_max(char **arr, int n)</b>
     - Finds the index of the maximum intal in an array, going through sequentially or in a linear fashion.
     - Initially the first intal in the array is assumed to be greater.
     - After successful intal_compare() between max intal and current intal, the index is updated correspondingly.
     - Finally the index of the maximum intal is returned.
 
 
-12. <b>intal_min(char **arr, int n)<b>
+12. <b>intal_min(char **arr, int n)</b>
     - Finds the index of the minimum intal in an array, going through sequentially or in a linear fashion.
     - Initially the first intal in the array is assumed to be the minimum intal.
     - After successful intal_compare() between min intal and current intal, the index is updated correspondingly.
     - Finally the index of the minimum intal is returned.
 
 
-13. <b>intal_search(char **arr, int n, const char* key)<b>
+13. <b>intal_search(char **arr, int n, const char* key)</b>
     - Time - O(n) complexity is used.
     - The array is traversed from i = 0 to n, sequentially.
     - If intal_compare() of the current intal and the key, return 0 then upon success, return the index of the intal.
     - If control exits the for loop, then return -1 indicating no element was found.
 
 
-14. <b>intal_binsearch(char **arr, int n, const char* key)<b>
+14. <b>intal_binsearch(char **arr, int n, const char* key)</b>
     - Array has to be sorted(non-decreasing order) for this function to work.
     - The middle index is calculated using (upper_bound(ub) + lower_bound(lb))/2.
     - Until the lb<=ub the loop is run.
@@ -162,7 +162,7 @@ static char* str_reverse(const char* str)
     - If control exits the loop then -1 is returned.
 
 
-15. <b>intal_sort(char **arr, int n)<b>
+15. <b>intal_sort(char **arr, int n)</b>
     - Uses quicksort(char **arr, int low, int high) and partition(char **arr, int low, int high). Quicksort logic.
     - O(n log n) algorithm
     - The partition function:
@@ -175,7 +175,7 @@ static char* str_reverse(const char* str)
         pivot element's index is computed and correpondingly that left and right halves are sorted until low<high is true.
 
 
-16. <b>coin_row_problem(char **arr, int n)<b>
+16. <b>coin_row_problem(char **arr, int n)</b>
     - The basic recursion formula f(n) = max{ cn-1 + f(n-2), f(n-1) } for n > 1, where f(0) = 0, f(1) = c0
     - Backtracking, Exhaustive search and Memoization could be used but have their own diadvantages like increase in time
       and space complexity, recursions etc. Hence dynamic programming with a sliding window of 3 looks promising.
